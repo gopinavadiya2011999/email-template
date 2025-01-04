@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @font-face {
+        font-family: "Saol Display";
+
+        src: url("SaolDisplay-Regular.ttf") format("opentype");
+      }
+
+      html,
+      body {
+        margin: 0%;
+        color: #121212;
+        background-color: white;
+        font-family: "Saol Display", sans-serif;
+      }
+
+      .main-padding {
+        max-width: 600px;
+        min-width: 280px;
+        margin: auto;
+        padding: 30px;
+      }
+
+      .main-view {
+        background-color: #f3f2ec;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .title-h1 {
+        font-size: 50px;
+        width: -webkit-fill-available;
+
+        height: 50px;
+        background-color: #e7e7e7;
+        margin: 0%;
+        text-align: center;
+        padding: 32px 0px 0px 10px;
+        font-family: "Saol Display";
+      }
+      .top-img {
+        width: -webkit-fill-available;
+      }
+      @media (max-width: 610px) {
+        .title-h1 {
+          font-size: 24px;
+        }
+
+        .top-img {
+          height: auto;
+        }
+      }
+      @media (max-width: 610px) {
+        .main-padding {
+          padding: 0px;
+        }
+        html,
+        body {
+          padding: 10px;
+        }
+      }
+
+      .tonal-shift {
+        padding: 40px 16px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .tonal-shift h1 {
+        font-size: 24px;
+        letter-spacing: 1px;
+
+        margin-bottom: 20px;
+      }
+      .tonal-shift p {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+        font-family: "Inter";
+        margin-bottom: 16px;
+      }
+      .tonal-shift a button {
+        cursor: pointer;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: "Inter";
+        padding: 16px 48px;
+
+        background-color: transparent;
+        border: 1px solid #acab8f;
+      }
+
+      .tonal-shift a button:hover {
+        background-color: #000;
+        border: none;
+        color: white;
+      }
+      .grid-main {
+        padding: 0px 16px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .grid-item {
+        padding: 0px;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item a img {
+        max-width: 100%;
+        display: block;
+        height: auto;
+      }
+
+      @media (max-width: 610px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-item {
+          background-color: white;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .com-button {
+        text-decoration: none;
+        display: block;
+      }
+
+      .com-button button {
+        text-align: center;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: "Inter";
+
+        padding: 16px 48px;
+        margin: 40px 0px;
+        background-color: transparent;
+        border: 1px solid #acab8f;
+      }
+
+      .com-button button:hover {
+        background-color: #000;
+        border: none;
+        color: white;
+      }
+
+      .second-img {
+        width: -webkit-fill-available;
+        display: block;
+      }
+      .second-img img {
+        width: -webkit-fill-available;
+      }
+
+      @media (max-width: 610px) {
+        .second-img {
+          height: auto;
+        }
+      }
+
+      .container {
+        font-family: "Inter", sans-serif;
+        width: -webkit-fill-available;
+        margin: 16px auto;
+        font-weight: 400;
+        font-family: "Inter";
+        padding: 0px 20px;
+      }
+
+      .nav-links {
+        border-top: 0.5px solid #acab8f;
+        border-bottom: 0.5px solid #acab8f;
+      }
+
+      .link-item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: space-between;
+        padding: 16px 0px;
+        border-top: 0.5px solid #acab8f;
+      }
+      .link-item-li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0px;
+        border-top: 0.5px solid #acab8f;
+      }
+
+      .link-item:first-child {
+        border-top: none;
+      }
+
+      .link-item div {
+        color: #121212;
+        font-family: "Inter";
+        font-size: 16px;
+        font-weight: 400;
+      }
+
+      .logo-section {
+        padding: 8px 0px;
+        border-bottom: 0.5px solid #acab8f;
+      }
+
+      .footer-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0px;
+      }
+
+      .footer-item a {
+        color: #121212;
+        text-align: right;
+        font-family: "Inter";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: 20px;
+      }
+      .services {
+        list-style-type: none;
+        padding: 0;
+        margin: 0%;
+      }
+      .logo {
+        width: 76px;
+        height: 76px;
+      }
+
+      .services li {
+        text-align: end;
+        margin: 16px 0;
+      }
+      .services li a {
+        color: #121212;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 12px;
+        color: #000;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      footer h1 a {
+        text-decoration: none;
+        color: #121212;
+        text-align: center;
+        font-family: "Inter";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+
+        margin-top: 10px;
+        display: block;
+      }
+      footer a {
+        text-decoration: none;
+        color: #121212;
+        font-family: "Inter";
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Email Tamplate</title>
+  </head>
+  <body>
+    <div class="main-padding">
+      <div class="main-view">
+        <h1 class="title-h1">CAMILLA AND MARC</h1>
+        <img class="top-img" src="image1.png" alt="" />
+
+        <div class="tonal-shift">
+          <h1>TONAL SHIFT</h1>
+          <p>
+            Update your wardrobe with a refreshing palette of earthy blue tones.
+            <br />
+            Discover new harmonious tailoring designed to wear as a set - or
+            layer <br />with textural mesh for an elevated evening ensemble.
+          </p>
+          <a
+            href="https://www.camillaandmarc.com/collections/new-arrivals?Button1=&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-Uh9cB6WORfKFxHlLSS2xww"
+            target="_blank"
+          >
+            <button>NEW ARRIVALS</button>
+          </a>
+        </div>
+
+        <div class="grid-main">
+          <div class="grid">
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/percival-vest-mid-blue1?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-Qt0se1tpXSdTNzDR3jh.qQ"
+                target="_blank"
+                ><img src="grid1.png" alt="Product 1"
+              /></a>
+            </div>
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/percival-pant-mid-blue1?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-tjQaFVuP6iw.kKoxdjJV9Q"
+                target="_blank"
+              >
+                <img src="grid2.png" alt="Product 2"
+              /></a>
+            </div>
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/lattice-top-seafoam?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-PipJlzsLOIo9r0plPXOH6Q"
+                target="_blank"
+              >
+                <img src="grid3.png" alt="Product 3" />
+              </a>
+            </div>
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/percival-dress-blue-marle?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-oO3W0uwFzzOy6PT_XlktRQ"
+                target="_blank"
+              >
+                <img src="grid4.png" alt="Product 4" />
+              </a>
+            </div>
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/percival-shirt-blue-marle?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-.hpifcdutZKFnhUJV_s8mQ"
+                target="_blank"
+              >
+                <img src="grid5.png" alt="Product 5" />
+              </a>
+            </div>
+            <div class="grid-item">
+              <a
+                href="https://www.camillaandmarc.com/products/lattice-maxi-skirt-seafoam?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-dqkUN3siegqUy_yUU30xIQ"
+                target="_blank"
+              >
+                <img src="grid6.png" alt="Product 6" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <a
+          class="com-button"
+          href="https://www.camillaandmarc.com/collections/new-arrivals?Button1=&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-ueD27iAO1GMqnI9Iz9BXIw"
+          target="_blank"
+          ><button>NEW TAILORING</button></a
+        >
+
+        <a
+          class="second-img"
+          href="https://www.camillaandmarc.com/search?search=LATTICE&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-GKLRWR7oq7K2pzABt0LTpQ"
+          target="_blank"
+        >
+          <img src="image2.png" alt="" />
+        </a>
+
+        <div class="tonal-shift">
+          <h1>SHEER SCULTPURE</h1>
+          <p>
+            Discover Lattice, an exquisite asymmetricmesh <br />fabrication.
+            Designed for a close sculptural fitthat<br />beautifully contours
+            the body.
+          </p>
+          <a
+            href="https://www.camillaandmarc.com/search?search=LATTICE&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-e7cftFcINUDLJSLpZg2a4Q"
+            target="_blank"
+          >
+            <button style="margin-bottom: 20px">SHOP NOW</button>
+          </a>
+        </div>
+
+        <div class="container">
+          <div class="nav-links">
+            <a
+              class="link-item"
+              href="https://www.camillaandmarc.com/collections/new-arrivals?Footer=Button&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-ctypFENjqDlWG13wnAt9KA"
+              target="_blank"
+            >
+              <div>New Arrivals</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="16"
+                viewBox="0 0 21 16"
+                fill="none"
+              >
+                <path
+                  d="M13 2L19 8M19 8L13 14M19 8H1"
+                  stroke="#ACAB8F"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </a>
+            <a
+              class="link-item"
+              href="https://www.camillaandmarc.com/collections/tops?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-0pWiOFyeerc5O5Del55.mg"
+              target="_blank"
+            >
+              <div>Tops</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="16"
+                viewBox="0 0 21 16"
+                fill="none"
+              >
+                <path
+                  d="M13 2L19 8M19 8L13 14M19 8H1"
+                  stroke="#ACAB8F"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.camillaandmarc.com/pages/lookbooks?Footer=Button&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-e7i7z0CaKHi3ItGKS_NU0A"
+              class="link-item"
+            >
+              <div>Lookbook</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="16"
+                viewBox="0 0 21 16"
+                fill="none"
+              >
+                <path
+                  d="M13 2L19 8M19 8L13 14M19 8H1"
+                  stroke="#ACAB8F"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </a>
+            <a
+              target="_blank"
+              href="https://www.camillaandmarc.com/collections/coming-soon?Footer=Button&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-WRzcsrtqU1VSr3KHuJxdaw"
+              class="link-item"
+            >
+              <div>Coming Soon</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="16"
+                viewBox="0 0 21 16"
+                fill="none"
+              >
+                <path
+                  d="M13 2L19 8M19 8L13 14M19 8H1"
+                  stroke="#ACAB8F"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                />
+              </svg>
+            </a>
+            <div class="link-item-li">
+              <a
+                href="https://www.camillaandmarc.com/collections/new-arrivals?Footer=Logo&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-zOA0AsuHnjO3Frh9nb5dBw"
+                target="_blank"
+                ><img src="logo.png" alt="Camilla and Marc Logo" class="logo"
+              /></a>
+              <ul class="services">
+                <li>
+                  <a
+                    href="https://www.camillaandmarc.com/blogs/all/virtual-size-guide?Text=VirtualSizeGuide&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-yPqNPJgRNv7Ejkbcu_67mw"
+                    target="_blank"
+                    >Virtual Size Guide</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.camillaandmarc.com/pages/delivery-returns?Text=FreeExchanges&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-vv38TPlAdVgYlYxT8r1V1g"
+                    target="_blank"
+                    >Free Online Exchanges</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.camillaandmarc.com/pages/delivery-returns?Text=SameDayShipping&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-74LT5W2RDXf2BNO2rX2eTA"
+                    target="_blank"
+                  >
+                    Same Day Click & Collect*
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.camillaandmarc.com/pages/delivery-returns?Text=FreeShipping&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-__DiknUQ8_B_yv.M7fj_Mw"
+                    target="_blank"
+                  >
+                    Complimentary Shipping*
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="logo-section">
+            <div class="footer-item">
+              <a
+                href="https://www.camillaandmarc.com/pages/boutiques?Text=BoutiqueLocations&utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-rtFALG.0MBTrZfsiwTGBgg"
+                target="_blank"
+                >Boutique Locations</a
+              >
+
+              <a target="_blank" href="https://www.tiktok.com/@camillaandmarc"
+                >TikTok</a
+              >
+            </div>
+            <div class="footer-item">
+              <a
+                href="https://www.camillaandmarc.com/?utm_source=linkshare&utm_medium=affiliate&utm_campaign=Skimlinks.com&ranMID=38323&ranEAID=2116208&ranSiteID=TnL5HPStwNw-BBNaPAvEgA1tuHCkkFEyDw"
+                target="_blank"
+                >Speak To A Client Advisor</a
+              >
+
+              <a
+                href="https://www.instagram.com/camillaandmarc/"
+                target="_blank"
+                >Instagram</a
+              >
+            </div>
+          </div>
+
+          <footer>
+            <h1>
+              <a
+                href="https://www.camillaandmarc.com/?Footer=Text"
+                target="_blank"
+                >CAMILLAANDMARC.COM</a
+              >
+            </h1>
+            <p>2024 CAMILLA AND MARC AU</p>
+            <p>287 Young Street Sydney, NSW 2017</p>
+            <a href="https://www.camillaandmarc.com/" target="_blank"
+              >Unsubscribe</a
+            >
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
